@@ -17,7 +17,7 @@ Resources
 Install
 -------
 
-rake rails:template LOCATION=http://tr.im/tog_banners_current
+rake rails:template LOCATION=http://bit.ly/bFG6pN
 
 
 
