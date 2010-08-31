@@ -1,0 +1,21 @@
+<h1><%= link_to I18n.t("tog_banners.admin.zones.title"), admin_banner_zones_path%> / <%=@banner_zone.name %></h1>
+
+<p>
+  <%= link_to I18n.t("tog_banners.admin.zones.edit"), edit_admin_banner_zone_url(@banner_zone), {:title => I18n.t("tog_banners.admin.zones.edit_zone"), :class => 'button'} -%>
+
+  <%= link_to I18n.t("tog_banners.admin.zones.delete"), admin_banner_zone_path(@banner_zone), :confirm => I18n.t("tog_banners.admin.zones.delete_confirmation"), :method => :delete, :class => "button delete" %>
+</p>
+
+
+<table class="tableE">
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.zones.name") %></th><td><%=@banner_zone.name%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.zones.width") %></th><td><%=@banner_zone.width%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.zones.height") %></th><td><%=@banner_zone.height%></td></tr>
+</table>
+
+<br />
+
+<h3>Banners</h3>
+
+<%= render :partial => '/admin/banners/list', :locals => {:banners => @banners}%>
+

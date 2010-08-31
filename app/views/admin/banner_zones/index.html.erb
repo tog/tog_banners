@@ -1,0 +1,38 @@
+<h1><%= I18n.t("tog_banners.admin.zones.title") %></h1>
+
+<p><%= link_to I18n.t("tog_banners.admin.zones.create_new_zone"),  new_admin_banner_zone_url, {:class => "button add", :title => I18n.t("tog_banners.admin.zones.create_new_zone")} %></p>
+
+<table class="tableE">
+  <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("tog_banners.fields.zones.name") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.zones.width") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.zones.height") %></th>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">&nbsp;</th>      
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="5" class="info_results">
+        <span class="info_items"><%= page_entries_info @banner_zones %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate @banner_zones, :container => false %>
+        </span>
+        </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @banner_zones.each do |bz| %>
+
+    <tr<%= cycle(' class="pair"','') -%>>
+      <td><strong><%= link_to bz.name, admin_banner_zone_url(bz), {:title => I18n.t("tog_banners.admin.zones.show")} -%></strong></td>
+      <td><%= bz.width -%></td>
+      <td><%= bz.height -%></td>
+      <td><%= link_to I18n.t("tog_banners.admin.zones.edit"), edit_admin_banner_zone_url(bz), {:title => I18n.t("tog_banners.admin.zones.edit_zone"), :class => 'button'} -%></td>
+      <td><%= link_to I18n.t("tog_banners.admin.zones.delete"), admin_banner_zone_path(bz), :confirm => I18n.t("tog_banners.admin.zones.delete_confirmation"), :method => :delete, :class => "button delete" %></td>      
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>

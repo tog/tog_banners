@@ -1,0 +1,30 @@
+<h1><%= link_to I18n.t("tog_banners.admin.banners.title"), admin_banners_path%> / <%=@banner.name %></h1>
+
+<p>
+  <%= link_to I18n.t("tog_banners.admin.banners.edit"), edit_admin_banner_url(@banner), {:title => I18n.t("tog_banners.admin.banners.edit_zone"), :class => 'button'} -%>
+
+  <%= link_to I18n.t("tog_banners.admin.banners.delete"), admin_banner_path(@banner), :confirm => I18n.t("tog_banners.admin.banners.delete_confirmation"), :method => :delete, :class => "button delete" %>
+</p>
+
+
+<table class="tableE">
+  <caption><%= I18n.t("tog_banners.admin.banners.details") %></caption>  
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.name") %></th><td><%=@banner.name%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.zone") %></th><td><%=@banner.banner_zone.name if @banner.banner_zone %></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.url") %></th><td><%=link_to @banner.url, @banner.url%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.image") %></th><td><%= image_tag(@banner.image.url, :width => @banner.width, :height => @banner.height)%></td></tr>
+</table>
+
+<table class="tableE">
+  <caption><%= I18n.t("tog_banners.admin.banners.publication") %></caption>  
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.active") %></th><td><%=@banner.active%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.start_date") %></th><td><%=@banner.start_date%></td></tr>
+  <tr><th scope="row"><%= I18n.t("tog_banners.fields.banners.end_date") %></th><td><%=@banner.end_date %></td></tr>
+</table>
+
+<br />
+
+<h3>Clicks</h3>
+
+<%= render :partial => '/admin/banners/clicks', :locals => {:banners => @clicks}%>
+

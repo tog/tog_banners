@@ -1,0 +1,59 @@
+es:
+  interface:
+    admin:
+      banners: Banners
+      banners_items:
+        banners: Banners
+        zones: Áreas
+  tog_banners:
+    fields:
+      banners:
+        name: Nombre 
+        start_date: Comienza
+        end_date: Finaliza
+        active: Activo
+        image: Imagen
+        clicks: Clicks
+        url: URL
+        zone: Zona
+      zones:
+        name: Nombre 
+        width: Ancho
+        height: Alto
+      clicks: 
+        user: Usuario
+        ip: IP
+        referer: Origen
+        click_date: Fecha
+    public:
+      banners:
+        not_found: No se ha encontrado el bannner
+    admin:
+      banners:
+        not_found: No se ha encontrado el bannner
+        title: Banners
+        create_new_banner: Crear un nuevo banner
+        show: Ver banner
+        created: Se ha creado el banner
+        edit: Editar
+        edit_zone: Editar este banner
+        update: Actualizar
+        updated: Se ha actualizado el banner
+        delete: Eliminar
+        delete_confirmation: Esta acción no se puede deshacer. ¿Está seguro de querer eliminar este banner?. 
+        deleted: Se ha eliminado el banner
+        details: Detalles del banner
+        publication: Detalles de publicación
+      zones:
+        not_found: No se ha encontrado el área de banners
+        title: Áreas de banners
+        create_new_zone: Crear una área nueva
+        show: Ver área
+        created: SE ha creado el área de banners
+        edit: Editar
+        edit_zone: Editar esta área
+        update: Actualizar
+        updated: Se ha actualizado el área de banners
+        delete: Eliminar
+        delete_confirmation: Esta acción no se puede deshacer. ¿Está seguro de querer eliminar este área?. Los banners permancerán sin asignar
+        deleted: Se ha eliminado el área de banners

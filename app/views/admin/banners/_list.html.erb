@@ -1,0 +1,40 @@
+<table class="tableE">
+  <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.name") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.image") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.active") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.start_date") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.end_date") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.banners.clicks") %></th>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">&nbsp;</th>      
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="8" class="info_results">
+        <span class="info_items"><%= page_entries_info banners %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate banners, :container => false %>
+        </span>
+        </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% banners.each do |banner| %>
+
+    <tr<%= cycle(' class="pair"','') -%>>
+      <td><strong><%= link_to banner.name, admin_banner_url(banner), {:title => I18n.t("tog_banners.admin.banners.show")} -%></strong></td>
+      <td><%= image_tag(banner.image.url, :width => banner.width, :height => banner.height)%></td>
+      <td><%= banner.active -%></td>
+      <td nowrap="nowrap"><%= banner.start_date -%></td>
+      <td nowrap="nowrap"><%= banner.end_date -%></td>
+      <td nowrap="nowrap"><%= banner.banner_clicks.count -%></td>
+      <td nowrap="nowrap"><%= link_to I18n.t("tog_banners.admin.banners.edit"), edit_admin_banner_url(banner), {:title => I18n.t("tog_banners.admin.banners.edit_zone"), :class => 'button'} -%></td>
+      <td nowrap="nowrap"><%= link_to I18n.t("tog_banners.admin.banners.delete"), admin_banner_path(banner), :confirm => I18n.t("tog_banners.admin.banners.delete_confirmation"), :method => :delete, :class => "button delete" %></td>      
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>

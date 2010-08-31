@@ -1,0 +1,15 @@
+<h1><%= link_to I18n.t("tog_banners.admin.zones.title"), admin_banner_zones_path%> / <%= link_to @banner_zone.name, admin_banner_zone_path(@banner_zone) %></h1>
+
+<br />
+
+<%= error_messages_for :banner_zone %>
+<% form_for @banner_zone, :url => admin_banner_zone_path(@banner_zone), :html => {:id => "edit_banner_zone", :method => :put} do |f| -%>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <br />
+
+  <div class="actions">
+    <%= submit_tag I18n.t("tog_banners.admin.zones.update"), {:accesskey => "s", :class=>"button"} %>
+  </div>
+
+<% end -%>

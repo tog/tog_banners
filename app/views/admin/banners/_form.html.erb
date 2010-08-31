@@ -1,0 +1,46 @@
+<table class="tableE">
+  <caption><%= I18n.t("tog_banners.admin.banners.details") %></caption>  
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.name") %></th>
+      <td nowrap="nowrap"><%=f.text_field :name, :class=>"fieldbox" %></td>
+  </tr>
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.zone") %></th>
+      <td nowrap="nowrap">
+        <%= f.select(:banner_zone_id, options_from_collection_for_select(BannerZone.all, :id, :description, @banner.banner_zone_id), :class => "fieldbox") %>
+      </td>
+  </tr>  
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.url") %></th>
+      <td nowrap="nowrap"><%=f.text_field :url, :class=>"fieldbox" %></td>
+  </tr>
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.image") %></th>
+      <td nowrap="nowrap">
+        <% if @banner.image? %>
+          <%= image_tag(@banner.image.url, :width => @banner.width, :height => @banner.height) %>
+          <br/>
+        <% end %>      
+        <%= file_field "banner", "image", :class=>"fieldbox" %>
+      </td>
+  </tr>
+</table>
+
+
+<table class="tableE">
+  <caption><%= I18n.t("tog_banners.admin.banners.publication") %></caption>  
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.active") %></th>
+      <td nowrap="nowrap">
+        <%= f.check_box :active %>
+      </td>
+  </tr>  
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.start_date") %></th>
+      <td nowrap="nowrap"><%=f.date_select :start_date, :class=>"fieldbox" %></td>
+  </tr>
+  <tr>
+      <th scope="row"><%= I18n.t("tog_banners.fields.banners.end_date") %></th>
+      <td nowrap="nowrap"><%=f.date_select :end_date, :class=>"fieldbox" %></td>
+  </tr>
+</table>

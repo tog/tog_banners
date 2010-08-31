@@ -1,0 +1,6 @@
+<h1><%= I18n.t("tog_banners.admin.banners.title") %></h1>
+
+<p><%= link_to I18n.t("tog_banners.admin.banners.create_new_banner"),  new_admin_banner_url, {:class => "button add", :title => I18n.t("tog_banners.admin.banners.create_new_banner")} %></p>
+
+
+<%= render :partial => '/admin/banners/list', :locals => {:banners => @banners}%>

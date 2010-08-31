@@ -1,0 +1,12 @@
+<h1><%= link_to I18n.t("tog_banners.admin.banners.title"), admin_banners_path%> / <%= I18n.t("tog_banners.admin.banners.create_new_banner") %></h1>
+
+<%= error_messages_for :banner %>
+<% form_for @banner, :url => admin_banners_path,  :html => {:multipart=>true, :id => "new_banner"} do |f| -%>
+
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <div class="actions">
+    <%= submit_tag I18n.t("tog_banners.admin.banners.create_new_banner"), {:accesskey => "s", :class=>"button"} %>
+  </div>
+  
+<% end -%>

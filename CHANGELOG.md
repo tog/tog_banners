@@ -1,0 +1,4 @@
+Edge
+----
+
+* Plugin initial version

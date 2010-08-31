@@ -1,0 +1,32 @@
+<table class="tableE">
+  <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("tog_banners.fields.clicks.user") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.clicks.ip") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.clicks.referer") %></th>
+      <th scope="col"><%= I18n.t("tog_banners.fields.clicks.click_date") %></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="info_results">
+        <span class="info_items"><%= page_entries_info clicks %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate clicks, :container => false %>
+        </span>
+        </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% clicks.each do |click| %>
+
+    <tr<%= cycle(' class="pair"','') -%>>
+      <td><%= link_to(click.user.login, edit_admin_user_path(click.user)) if click.user%></td>
+      <td><%= click.ip%></td>
+      <td><%= link_to click.referer, click.referer%></td>
+      <td><%= click.click_date%></td>     
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>
